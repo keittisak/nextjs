@@ -25,9 +25,17 @@ export const orderSlice = createSlice({
 
     },
     removeDetail: (state, action) => {
-        const details = state.details.filter(item => item.name != action.payload.name);
-        state.details = details;
-        state.total -= action.payload.total;
+        const details = state.details;
+        const itemIdx = state.details.findIndex(item => item.name == action.payload.name);
+        const quantity = details[itemIdx].quantity;
+        const price = details[itemIdx].price;
+        if( quantity > 1 ){
+          details[itemIdx].quantity -= 1;
+        }else{
+          details.splice(itemIdx,1);
+        }
+        // state.details = details;
+        state.total -= price;
         state.vat = parseFloat(((state.total * 7)/107).toFixed(2));
         state.netTotal = parseFloat((state.total+state.vat).toFixed(2));
     },

@@ -26,8 +26,7 @@ const Detail = (prop) => {
             bgColor="grey-100"
             borderRadius="lg"
             p={2}
-            mb={0.5}
-            mt={2}
+            mb={2}
             // sx={{height:"80px", overflowY:"hidden"}}
             >
             <SoftBox mr={2}>
@@ -68,7 +67,7 @@ const Detail = (prop) => {
                         circular
                         onClick={() => {dispatch(removeDetail({name,total:price*quantity}))}}
                     >
-                        <Icon>delete</Icon>
+                        <Icon>remove</Icon>
                     </SoftButton>
                     </Grid>
                 </Grid>

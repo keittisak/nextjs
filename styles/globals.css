@@ -2,6 +2,18 @@
 @import url('https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp');
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300&display=swap');
 
+html,
+body {
+  margin: 0;
+}
+
+#__next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 .fontKanit {
     font-family: 'Kanit',"Roboto","Helvetica","Arial",sans-serif !important;
 }

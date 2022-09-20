@@ -24,7 +24,7 @@ const Restaurant = () => {
     const handleSetTabValue = (event, newValue) => dispatch(setRestaurant(newValue));
     
     return (
-        <SoftBox pb={4} px={2}>
+        <SoftBox py={2} px={2}>
             <Grid container spacing={3} alignItems="center">
             {/* <Grid item>
                 <SoftBox height="100%" mt={0.5} lineHeight={1}>

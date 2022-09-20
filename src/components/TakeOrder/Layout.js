@@ -5,11 +5,10 @@ const Layout = ({children}) => {
 
     return (
       <SoftBox
-        sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
-          p: 3,
-          position: "relative",
-        })}
-        style={{ height: '100%', position: 'absolute', left: '0px', width: '100%', overflow: 'hidden'}}
+        height='100vh'
+        width= '100vw'
+        p={2}
+        // style={{ height: '100%', left: '0px', width: '100%', overflow: 'hidden'}}
       >
         {children}
       </SoftBox>

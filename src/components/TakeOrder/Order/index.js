@@ -24,17 +24,12 @@ const Order = () => {
     return (
         <Card style={{height:'100%'}}>
             <SoftBox pt={2} px={2} position="relative" height="100%" width="100%">
-                <SoftBox mb={0.5}>
+                <SoftBox mb={2}>
                     <SoftTypography variant="h6" fontWeight="medium">
                         My Order
                     </SoftTypography>
                 </SoftBox>
-                <SoftBox>
-                    <SoftTypography variant="button" fontWeight="regular" color="text">
-                        Take out
-                    </SoftTypography>
-                </SoftBox>
-                <SoftBox component="ul" display="flex" flexDirection="column" p={0} m={0} pb={1} height='430px'>
+                <SoftBox component="ul" display="flex" flexDirection="column" p={0} m={0} pb={1} height='75%' overflow={'auto'}>
                     <ScrollableFeed>
                         {
                             orderDetails.map((item,idx) => {

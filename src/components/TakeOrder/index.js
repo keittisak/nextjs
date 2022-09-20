@@ -21,31 +21,31 @@ const TakeOrder = () => {
 
     return (
       <Layout>
-        <SoftBox mt={1} mb={3} height="100%">
-        <Grid container spacing={3} height="100%">
-          <Grid item md={4}>
-            <Order/>
+
+          <Grid container spacing={0} height="100%">
+            <Grid item md={4} height='100%' overflow={'hidden'}>
+              <Order/>
+            </Grid>
+            <Grid item md={8} height='100%' pb={5} overflow={'hidden'}>
+              <RestaurantComponent/>
+              <SoftBox px={2} pb={5} sx={{
+                height:'100%',
+                overflow: 'auto',
+                // overflowY: 'scroll'
+              }}>
+                <Grid container spacing={3}>
+                  { productListData[restaurant]['products'].map((item,idx) => {
+                    return (
+                      <Grid item md={3} key={idx}>
+                        <Product name={item.name} price={item.price} image={item.image} />
+                      </Grid>
+                    );
+                  })}
+                </Grid>
+              </SoftBox>
+            </Grid>
           </Grid>
-          <Grid item md={8}>
-          <RestaurantComponent/>
-            <SoftBox px={2} pb={5} sx={{
-              height:'600px',
-              overflow: 'hidden',
-              overflowY: 'scroll'
-            }}>
-              <Grid container spacing={3}>
-                { productListData[restaurant]['products'].map((item,idx) => {
-                  return (
-                    <Grid item md={3} key={idx}>
-                      <Product name={item.name} price={item.price} image={item.image} />
-                    </Grid>
-                  );
-                })}
-              </Grid>
-            </SoftBox>
-          </Grid>
-        </Grid>
-        </SoftBox>
+
       </Layout>
     );
 }
