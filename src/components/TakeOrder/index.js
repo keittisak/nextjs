@@ -22,7 +22,7 @@ const TakeOrder = () => {
     return (
       <Layout>
 
-          <Grid container spacing={0} height="100%">
+          <Grid container spacing={1} height="100%">
             <Grid item md={4} height='100%' overflow={'hidden'}>
               <Order/>
             </Grid>
