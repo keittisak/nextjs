@@ -51,7 +51,6 @@ const createReceiptImg = async ({ details, total,payment }) => {
             quality: 100,
             output: 'public/receipt.png',
             html: `
-            <!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
