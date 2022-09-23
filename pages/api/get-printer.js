@@ -1,7 +1,8 @@
 import escpos from 'escpos';
-import escposUsb from 'escpos-usb';
+// import escposUsb from 'escpos-usb';
+import newEscposUsb from 'utils/new-escpos-usb';
 
-escpos.USB = escposUsb;
+escpos.USB = newEscposUsb;
 
 export default function handler(req, res) {
   let devices = escposUsb.findPrinter();

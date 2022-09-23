@@ -1,7 +1,7 @@
 import path from 'path'
 import nodeHtmlToImage from 'node-html-to-image';
 import escpos from 'escpos';
-import escposUsb from 'escpos-usb';
+// import escposUsb from 'escpos-usb';
 import newEscposUsb from 'utils/new-escpos-usb';
 escpos.USB = newEscposUsb;
 
