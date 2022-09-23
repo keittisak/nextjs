@@ -18,12 +18,13 @@ import Divider from "@mui/material/Divider";
 
 import { useSelector, useDispatch } from 'react-redux'
 import { selectRestaurant, setRestaurant } from "features/restaurant/restaurantSlice";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const Restaurant = () => {
     const restaurant = useSelector(selectRestaurant);
     const dispatch = useDispatch()
     const handleSetTabValue = (event, newValue) => dispatch(setRestaurant(newValue));
+    const [devices, setDevice] = useState([]);
 
     const [fullscreen, setFullScreen] = useState(false);
 
@@ -49,6 +50,16 @@ const Restaurant = () => {
         }
 
     }
+
+    const fetchDevice = useCallback(async () => {
+        const response = await fetch('/api/get-printer');
+        const json = await response.json();
+        setDevice(json);
+    },[]);
+
+    useEffect(() => {
+        fetchDevice();
+    },[fetchDevice])
     
     return (
         <SoftBox py={2} px={2}>
@@ -68,11 +79,15 @@ const Restaurant = () => {
                      
                 </Grid>
                 <Grid item md={6}>
-                    <SoftButton iconOnly circular size="large" color="dark" variant="text" sx={{display:'flex', marginLeft:'auto'}}
-                        onClick={openFullscreen}
-                    >
-                    <Icon>{fullscreen ? 'fullscreen_exit' : 'fullscreen'}</Icon>
-                </SoftButton>
+                    <SoftBox display="flex" justifyContent="space-between" alignItems="center">
+                        <SoftTypography variant="button" color="text">*device: {devices.length}</SoftTypography>
+                        <SoftButton iconOnly circular size="large" color="dark" variant="text"
+                            onClick={openFullscreen}
+                        >
+                            <Icon>{fullscreen ? 'fullscreen_exit' : 'fullscreen'}</Icon>
+                        </SoftButton>
+                    </SoftBox>
+                    
                 </Grid>
             </Grid>
         </SoftBox>

@@ -11,6 +11,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
+import LoadingButton from '@mui/lab/LoadingButton';
+
 
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
@@ -19,7 +21,7 @@ import SoftTypography from "components/SoftTypography";
 import { borderRadius, padding } from '@mui/system';
 
 import { useSelector, useDispatch } from 'react-redux'
-import { selectNetTotal, clearOrder } from "features/order/orderSlice";
+import { selectDetail, selectNetTotal, clearOrder } from "features/order/orderSlice";
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -37,7 +39,7 @@ const BootstrapDialogTitle = (props) => {
 
   React.useEffect(()=>{
     setInterval(() => {
-      setCountDown(countDown--);
+      setCountDown((countDown) => countDown -= 1);
     }, 1000);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
@@ -84,6 +86,7 @@ BootstrapDialogTitle.propTypes = {
 const PaymentDialog = () => {
   const dispatch = useDispatch()
   const orderNetTotal = useSelector(selectNetTotal);
+  const orderDetails = useSelector(selectDetail);
   const [open, setOpen] = React.useState(false);
   const [payment, setPayment] = React.useState(null);
 
@@ -99,10 +102,12 @@ const PaymentDialog = () => {
     setOpen(false);
   };
 
-  const handlePaymentSuccess = () => {
-    setPayment(null);
-    setOpen(false);
+  const handlePaymentSuccess = async () => {
     dispatch(clearOrder());
+    setPayment(null);
+    const response = await fetch(`api/print?details=${JSON.stringify(orderDetails)}&total=${orderNetTotal}&payment=${payment}`);
+    setOpen(false);
+    
   }
 
   return (
@@ -270,9 +275,13 @@ const PaymentDialog = () => {
             </SoftBox>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handlePaymentSuccess}>
-            ชำระเงินสำเร็จ
-          </Button>
+          {
+            (orderNetTotal > 0) 
+              ? <Button autoFocus onClick={handlePaymentSuccess}>ชำระเงินสำเร็จ</Button>
+              : <LoadingButton loading variant="text">ชำระเงินสำเร็จ</LoadingButton>
+          }
+          
+
         </DialogActions>
       </BootstrapDialog>
     </div>

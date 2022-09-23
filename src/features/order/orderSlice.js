@@ -20,7 +20,7 @@ export const orderSlice = createSlice({
             state.details = [...state.details, {...action.payload, ...{quantity:quantity}}]
         }    
         state.total += action.payload.price;
-        state.vat = parseFloat(((state.total * 7)/107).toFixed(2));
+        // state.vat = parseFloat(((state.total * 7)/107).toFixed(2));
         state.netTotal = parseFloat((state.total+state.vat).toFixed(2));
 
     },
@@ -36,7 +36,7 @@ export const orderSlice = createSlice({
         }
         // state.details = details;
         state.total -= price;
-        state.vat = parseFloat(((state.total * 7)/107).toFixed(2));
+        // state.vat = parseFloat(((state.total * 7)/107).toFixed(2));
         state.netTotal = parseFloat((state.total+state.vat).toFixed(2));
     },
     clearOrder: (state) => {
