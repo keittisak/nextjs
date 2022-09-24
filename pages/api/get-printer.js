@@ -16,22 +16,20 @@ export default async function handler(req, res) {
             <bold>
               <text-line size="1:0">{{title}}</text-line>
             </bold>
-              
-            <image density="d24">
-              {{base64PngImage}}
-            </image>
-          </align>    
+ 
+          </align>   
           <line-feed />
-          <paper-cut />
+          <paper-cut /> 
         </document>`;
       
         const input = {
           title: 'PNG - base64',
-          base64PngImage: 'data:image/png;base64,'+dataImage
+          // base64PngImage: 'data:image/png;base64,'+dataImage
         };
       
         const buffer = EscPos.getBufferFromTemplate(template, input);
-  res.status(200).json(buffer)
+
+        res.status(200).json(buffer)
 }
 
 

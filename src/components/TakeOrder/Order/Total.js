@@ -14,6 +14,7 @@ import { selectRestaurant } from "features/restaurant/restaurantSlice";
 import { selectDetail, selectTotal, selectVat, selectNetTotal } from "features/order/orderSlice";
 import { useState } from "react";
 
+import { EscPos } from 'escpos-xml';
 import { EscPos as EscPos2 } from '@tillpos/xml-escpos-helper';
 
 
@@ -49,7 +50,7 @@ const Total = () => {
         //     });
 
         // console.log(stream);
-        alert(navigator.usb)
+        // alert(navigator.usb)
         if (device == null) {
             navigator.usb.requestDevice({ filters: [{ vendorId: 0x1fc9 }] })
             .then(selectedDevice => {
@@ -60,15 +61,6 @@ const Total = () => {
             .then(() => console.log(device))
             .catch(error => { console.log(error); })
         }
-
-        navigator.usb.getDevices()
-        .then(devices => {
-            console.log(devices);
-            // if (devices.length > 0) {
-            //     device = devices[0];
-            // }
-        })
-        .catch(error => { console.log(error); });
     }
     
     const handelPrint = async () => {
@@ -87,16 +79,16 @@ const Total = () => {
           <paper-cut />
         </document>`;
       
-        // const response =   await fetch('api/get-printer');
-        // let buffer = await response.json();
-        // buffer = new Uint8Array(buffer.data);
+        const response =   await fetch('api/get-printer');
+        let buffer = await response.json();
+        buffer = new Uint8Array(buffer.data);
 
-        const input = {
-            title: 'PNG - base64 ทดสอบ',
-            base64PngImage: dataImage
-        };
+        // const input = {
+        //     title: 'PNG - base64 ทดสอบ',
+        //     base64PngImage: dataImage
+        // };
 
-        const buffer = EscPos2.getBufferFromTemplate(template, input);
+        // const buffer = EscPos2.getBufferFromTemplate(template, input);
 
         device.transferOut(1, buffer)
 		.catch(error => { console.log(error); })
