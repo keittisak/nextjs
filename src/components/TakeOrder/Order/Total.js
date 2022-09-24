@@ -14,7 +14,6 @@ import { selectRestaurant } from "features/restaurant/restaurantSlice";
 import { selectDetail, selectTotal, selectVat, selectNetTotal } from "features/order/orderSlice";
 import { useState } from "react";
 
-import { EscPos } from 'escpos-xml';
 import { EscPos as EscPos2 } from '@tillpos/xml-escpos-helper';
 
 
@@ -79,9 +78,9 @@ const Total = () => {
           <paper-cut />
         </document>`;
       
-        const response =   await fetch('api/get-printer');
-        let buffer = await response.json();
-        buffer = new Uint8Array(buffer.data);
+        // const response =   await fetch('api/get-printer');
+        // let buffer = await response.json();
+        // buffer = new Uint8Array(buffer.data);
 
         // const input = {
         //     title: 'PNG - base64 ทดสอบ',

@@ -51,15 +51,15 @@ const Restaurant = () => {
 
     }
 
-    const fetchDevice = useCallback(async () => {
-        const response = await fetch('/api/get-printer');
-        const json = await response.json();
-        setDevice(json);
-    },[]);
+    // const fetchDevice = useCallback(async () => {
+    //     const response = await fetch('/api/get-printer');
+    //     const json = await response.json();
+    //     setDevice(json);
+    // },[]);
 
-    useEffect(() => {
-        fetchDevice();
-    },[fetchDevice])
+    // useEffect(() => {
+    //     fetchDevice();
+    // },[fetchDevice])
     
     return (
         <SoftBox py={2} px={2}>
