@@ -16,7 +16,9 @@ export default function Home() {
     <>
       <Head>
         <title>Take Order App</title>
+        <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1"></meta>
         <meta name="description" content="take order app" />
+        <meta name="mobile-web-app-capable" content="yes"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider theme={theme}>
