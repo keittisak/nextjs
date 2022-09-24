@@ -16,6 +16,7 @@ import { useState } from "react";
 
 import { EscPos } from 'escpos-xml';
 import { EscPos as EscPos2 } from '@tillpos/xml-escpos-helper';
+import { CatchingPokemonSharp } from "@mui/icons-material";
 
 
 const Total = () => {
@@ -71,25 +72,23 @@ const Total = () => {
             <bold>
               <text-line size="1:0">{{title}}</text-line>
             </bold>
-            <image density="d24">
-              {{base64PngImage}}
-            </image>
           </align>    
           <line-feed />
           <paper-cut />
         </document>`;
       
-        const response =   await fetch('api/get-printer');
-        let buffer = await response.json();
-        buffer = new Uint8Array(buffer.data);
+        // const response =   await fetch('api/get-printer');
+        // let buffer = await response.json();
+        // buffer = new Uint8Array(buffer.data);
 
-        // const input = {
-        //     title: 'PNG - base64 ทดสอบ',
-        //     base64PngImage: dataImage
-        // };
+        const input = {
+            title: 'PNG - base64 ทดสอบ',
+            // base64PngImage: dataImage
+        };
 
-        // const buffer = EscPos2.getBufferFromTemplate(template, input);
+        const buffer = EscPos2.getBufferFromTemplate(template, input);
 
+        // console.log(buffer);
         device.transferOut(1, buffer)
 		.catch(error => { console.log(error); })
 
