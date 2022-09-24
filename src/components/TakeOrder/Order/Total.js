@@ -60,6 +60,15 @@ const Total = () => {
             .then(() => console.log(device))
             .catch(error => { console.log(error); })
         }
+
+        navigator.usb.getDevices()
+        .then(devices => {
+            console.log(devices);
+            // if (devices.length > 0) {
+            //     device = devices[0];
+            // }
+        })
+        .catch(error => { console.log(error); });
     }
     
     const handelPrint = async () => {
@@ -82,12 +91,12 @@ const Total = () => {
         // let buffer = await response.json();
         // buffer = new Uint8Array(buffer.data);
 
-        // const input = {
-        //     title: 'PNG - base64 ทดสอบ',
-        //     base64PngImage: dataImage
-        // };
+        const input = {
+            title: 'PNG - base64 ทดสอบ',
+            base64PngImage: dataImage
+        };
 
-        // const buffer = EscPos2.getBufferFromTemplate(template, input);
+        const buffer = EscPos2.getBufferFromTemplate(template, input);
 
         device.transferOut(1, buffer)
 		.catch(error => { console.log(error); })
