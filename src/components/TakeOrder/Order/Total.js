@@ -27,6 +27,7 @@ const Total = () => {
     const orderNetTotal = useSelector(selectNetTotal);
     const restaurant = useSelector(selectRestaurant);
     const [device, setDevice] = useState(null);
+    const [errorText, setErrorText] = useState(null);
 
 
     const setup = (device) => {
@@ -90,15 +91,16 @@ const Total = () => {
 
         // console.log(buffer);
         device.transferOut(1, buffer)
-		.catch(error => { console.log(error); })
+		.catch(error => { setErrorText(error) })
 
     }
 
     return (
         <>
         <a href="chrome://device-log/">test</a>
-        <button type="button" onClick={connectAndPrint}>Connect Device</button>
-<button type="button" onClick={handelPrint}>Print{device}</button>
+        <button type="button" onClick={connectAndPrint}>Connect Device</button><br/>
+<button type="button" onClick={handelPrint}>Print{device}</button><br/>
+<p>{errorText}</p>
             <SoftBox
                 display="flex"
                 justifyContent="space-between"
