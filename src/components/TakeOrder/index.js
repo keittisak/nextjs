@@ -36,7 +36,7 @@ const TakeOrder = () => {
                 <Grid container spacing={3}>
                   { productListData[restaurant]['products'].map((item,idx) => {
                     return (
-                      <Grid item md={3} key={idx}>
+                      <Grid item md={4} key={idx}>
                         <Product name={item.name} price={item.price} image={item.image} />
                       </Grid>
                     );

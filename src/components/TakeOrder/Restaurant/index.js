@@ -18,7 +18,7 @@ import Divider from "@mui/material/Divider";
 
 import { useSelector, useDispatch } from 'react-redux'
 import { selectRestaurant, setRestaurant } from "features/restaurant/restaurantSlice";
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 
 const Restaurant = () => {
     const restaurant = useSelector(selectRestaurant);
@@ -50,16 +50,6 @@ const Restaurant = () => {
         }
 
     }
-
-    // const fetchDevice = useCallback(async () => {
-    //     const response = await fetch('/api/get-printer');
-    //     const json = await response.json();
-    //     setDevice(json);
-    // },[]);
-
-    // useEffect(() => {
-    //     fetchDevice();
-    // },[fetchDevice])
     
     return (
         <SoftBox py={2} px={2}>
@@ -72,16 +62,16 @@ const Restaurant = () => {
                         onChange={handleSetTabValue}
                         sx={{ background: "transparent" }}
                     >
-                        <Tab className="fontKanit" label="ร้านอาหาร" icon={<RestaurantIcon />} style={{marginRight:'1rem', paddingRight:'1rem', paddingLeft:'1rem'}} />
-                        <Tab className="fontKanit" label="ร้านเครื่องดื่ม" icon={<LiquorIcon />} style={{paddingRight:'1rem', paddingLeft:'1rem'}} />
+                        <Tab className="fontKanit bold" label="Food" icon={<RestaurantIcon />} style={{marginRight:'1rem', paddingRight:'1rem', paddingLeft:'1rem'}} />
+                        <Tab className="fontKanit bold" label="Drink" icon={<LiquorIcon />} style={{paddingRight:'1rem', paddingLeft:'1rem'}} />
                     </Tabs>
                     </AppBar>
                      
                 </Grid>
                 <Grid item md={6}>
                     <SoftBox display="flex" justifyContent="space-between" alignItems="center">
-                        <SoftTypography variant="button" color="text">*device: {devices.length}</SoftTypography>
                         <SoftButton iconOnly circular size="large" color="dark" variant="text"
+                            sx={{marginLeft:'auto'}}
                             onClick={openFullscreen}
                         >
                             <Icon>{fullscreen ? 'fullscreen_exit' : 'fullscreen'}</Icon>

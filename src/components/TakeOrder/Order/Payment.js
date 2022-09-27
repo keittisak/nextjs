@@ -9,7 +9,7 @@ import PaymentDialog from "./PaymentDialog";
 import { useSelector } from 'react-redux'
 import { selectTotal } from "features/order/orderSlice";
 
-const Payment = () => {
+const Payment = ({device}) => {
     const orderTotal = useSelector(selectTotal);
     
     return (
@@ -19,7 +19,7 @@ const Payment = () => {
             alignItems="center"
             style={{margin:'20px auto'}}
             >
-            <PaymentDialog />
+            <PaymentDialog device={device} />
         </SoftBox>
     )
 }

@@ -3,48 +3,58 @@ const productListData = [
         'name': 'ร้านอาหาร',
         'products': [
             {
-                'name': 'ข้าวมันไก่ต้ม',
+                'name': 'Stewed pork leg on rice',
+                'name_th':'ข้าวขาหมู',
                 'price': 75,
-                'image': '/images/products/ข้าวมันไก่ต้ม.jpeg'
+                'image': '/images/products/pd1.jpeg'
             },
             {
-                'name': 'ข้าวมันไก่ทอด',
+                'name': 'Fried chicken over rice',
+                'name_th':'ข้าวไก่ทอด',
                 'price': 75,
-                'image': '/images/products/ข้าวมันไก่ทอด.jpeg'
+                'image': '/images/products/pd2.jpeg'
             },
             {
-                'name': 'กระเพราหมู',
+                'name': 'Red pork over rice',
+                'name_th':'ข้าวหมูแดง',
                 'price': 75,
-                'image': '/images/products/กระเพราหมู.jpeg'
+                'image': '/images/products/pd3.jpeg'
             },
             {
-                'name': 'กระเพาไก่',
+                'name': 'Roasted duck over rice',
+                'name_th':'ข้าวหน้าเป็ดย่าง',
                 'price': 75,
-                'image': '/images/products/กระเพราหมู.jpeg'
+                'image': '/images/products/pd4.jpeg'
             },
             {
-                'name': 'ลาดหน้า',
+                'name': 'Fried rice',
+                'name_th':'ข้าวผัด',
                 'price': 75,
-                'image': '/images/products/ลาดหน้า.jpeg'
+                'image': '/images/products/pd5.jpeg'
             },
             {
-                'name': 'ก๋วยเตี๋ยวหมู',
-                'price': 65,
-                'image': '/images/products/ก๋วยเตี๋ยวหมู.jpeg'
+                'name': 'Tom Yum Goong',
+                'name_th':'ต้มยำกุ้ง',
+                'price': 90,
+                'image': '/images/products/pd6.jpeg'
             },
             {
-                'name': 'ข้าวหมูทอด',
+                'name': 'Pork green curry',
+                'name_th':'แกงเขียวหวานหมู',
                 'price': 75,
-                'image': '/images/products/ข้าวหมูทอดกระเทียม.jpeg'
+                'image': '/images/products/pd7.jpeg'
             },
             {
-                'name': 'ข้าวพัดพริกแกง',
+                'name': 'Chicken Panang curry',
+                'name_th':'แกงพะแนงไก่',
                 'price': 75,
-                'image': '/images/products/ข้าวพัดแกงพริก.jpeg'
+                'image': '/images/products/pd8.jpeg'
             },
             {
-                'name': 'ไข่ดาว',
-                'price': 12
+                'name': 'Fried egg',
+                'name_th':'ไข่ดาว',
+                'price': 12,
+                'image': '/images/products/pd9.jpeg'
             },
 
         ]

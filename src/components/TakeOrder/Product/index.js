@@ -27,7 +27,7 @@ function Product({name, price, image}) {
           component="img"
           sx={{
             maxWidth: "100%",
-            height: "90px",
+            height: "100px",
             margin: 0,
             // boxShadow: ({ boxShadows: { md } }) => md,
             // objectFit: "cover",
