@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Take Order App</title>
+        <title>Food Take Home</title>
         <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1"></meta>
         <meta name="description" content="take order app" />
         <meta name="mobile-web-app-capable" content="yes"></meta>
