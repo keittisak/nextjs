@@ -356,7 +356,7 @@ const PaymentDialog = ({device}) => {
                                     
                                 </SoftBox>
                             </Grid>
-                            <Grid item md={8} className={ (payment == 'cash' || payment == null) ? 'd-none': ''}>
+                            <Grid item md={8} style={ (payment == 'cash' || payment == null) ? {display:'none'} : {} }>
                                 <SoftBox justifyContent="center" textAlign="center">
                                     <SoftTypography mb={1} color="white" variant="h5" fontWeight="bold" textTransform="capitalize" className="fontKanit">
                                         กรุณาสแกน QR code
@@ -372,7 +372,6 @@ const PaymentDialog = ({device}) => {
                                         }}
                                     />
                                 </SoftBox>
-                                
                             </Grid>
                         </Grid>
                 </SoftBox>
