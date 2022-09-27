@@ -233,7 +233,7 @@ const PaymentDialog = ({device}) => {
           </SoftTypography>
           <SoftBox borderRadius="md" display="inline-block" bgColor="success" px={1} mt={1}>
               <SoftTypography variant="h2" fontWeight="bold" textTransform="capitalize" color="white">
-              ฿ {orderNetTotal}
+              ฿ {parseFloat(orderNetTotal).toFixed(2)}
               </SoftTypography>
           </SoftBox>
           
