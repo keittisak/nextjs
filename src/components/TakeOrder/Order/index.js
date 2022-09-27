@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -23,12 +23,17 @@ let device = null;
 const Order = () => {
     const dispatch = useDispatch();
     const orderDetails = useSelector(selectDetail);
+    const [screenWidth, setScreenWidth] = useState(800);
 
     const setup = (device) => {
         return device.open()
         .then(() => device.selectConfiguration(1))
         .then(() => device.claimInterface(0))
     }
+
+    useEffect(() => {
+        setScreenWidth(screen.width)
+    },[]);
     
     const connectDeivce = () => {
         if (device == null) {
@@ -50,7 +55,7 @@ const Order = () => {
                         Food Take Home
                     </SoftTypography>
                 </SoftBox>
-                <SoftBox component="ul" display="flex" flexDirection="column" p={0} m={0} pb={1} height='75%' overflow={'auto'}>
+                <SoftBox component="ul" display="flex" flexDirection="column" p={0} m={0} pb={1} height={(screenWidth > 1098) ? '82%': '78%'} overflow={'auto'}>
                     <ScrollableFeed>
                         {
                             orderDetails.map((item,idx) => {
