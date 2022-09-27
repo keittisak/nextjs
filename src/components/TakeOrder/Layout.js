@@ -7,7 +7,9 @@ const Layout = ({children}) => {
       <SoftBox
         height='100vh'
         width= '100vw'
-        p={2}
+        px={2}
+        pt={2}
+        pb={1}
         // style={{ height: '100%', left: '0px', width: '100%', overflow: 'hidden'}}
       >
         {children}

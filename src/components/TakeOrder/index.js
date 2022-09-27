@@ -33,10 +33,10 @@ const TakeOrder = () => {
                 overflow: 'auto',
                 // overflowY: 'scroll'
               }}>
-                <Grid container spacing={3}>
+                <Grid container spacing={3} mb={2}>
                   { productListData[restaurant]['products'].map((item,idx) => {
                     return (
-                      <Grid item md={4} key={idx}>
+                      <Grid item md={3} key={idx}>
                         <Product name={item.name} price={item.price} image={item.image} />
                       </Grid>
                     );

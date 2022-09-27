@@ -27,13 +27,12 @@ const Total = () => {
                 display="flex"
                 justifyContent="space-between"
                 alignItems="center"
-                mb={1.5}
             >
                 <SoftTypography variant="button" color="text" fontWeight="bold">
                     Subtotal
                 </SoftTypography>
                 <SoftTypography variant="button" color="text" fontWeight="bold">
-                {orderTotal}
+                {parseFloat(orderTotal).toFixed(2)}
                 </SoftTypography>
 
             </SoftBox>
@@ -46,11 +45,11 @@ const Total = () => {
                     Vat
                 </SoftTypography>
                 <SoftTypography variant="button" color="text" fontWeight="bold">
-                    {orderVat}
+                    {parseFloat(orderVat).toFixed(2)}
                 </SoftTypography>
 
             </SoftBox>
-            <Divider />
+            <Divider style={{margin:'.2rem'}} />
             <SoftBox
                 display="flex"
                 justifyContent="space-between"
@@ -60,7 +59,7 @@ const Total = () => {
                     Total
                 </SoftTypography>
                 <SoftTypography variant="button" color="dark" fontWeight="bold">
-                    {orderNetTotal}
+                    {parseFloat(orderNetTotal).toFixed(2)}
                 </SoftTypography>
             </SoftBox>
         </>

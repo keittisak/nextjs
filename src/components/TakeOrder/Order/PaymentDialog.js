@@ -39,8 +39,13 @@ const BootstrapDialogTitle = (props) => {
   const [countDown, setCountDown] = React.useState(180);
 
   React.useEffect(()=>{
-    setInterval(() => {
-      setCountDown((countDown) => countDown -= 1);
+    let counter = countDown;
+    const interval = setInterval(() => {
+      counter -= 1;
+      setCountDown(counter);
+      if( counter == 0){
+        clearInterval(interval);
+      }
     }, 1000);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
@@ -214,13 +219,13 @@ const PaymentDialog = ({device}) => {
       <SoftButton variant="contained" color={'success'} size="large" sx={{width:"100%",fontSize:'1.5rem'}} className="fontKanit"
         onClick={handleClickOpen}
       >
-                PAY {orderNetTotal}
+                PAY {parseFloat(orderNetTotal).toFixed(2)}
       </SoftButton>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
-        maxWidth={'lg'}
+        maxWidth={'md'}
       >
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
           <SoftTypography variant="h2" fontWeight="bold" textTransform="capitalize" className="fontKanit" display="initial" mr={2}>
@@ -234,12 +239,12 @@ const PaymentDialog = ({device}) => {
           
         </BootstrapDialogTitle>
         <DialogContent >
-            <SoftBox pt={4} pb={4} px={2}>
+            <SoftBox pt={4} pb={2} px={2}>
                 <Grid container spacing={3} alignItems="center">
                     <Grid item md={4}>
                         <Card 
                           sx={{
-                            height:'120px', 
+                            height:'100px', 
                             display:'flex', 
                             justifyContent:'center', 
                             alignItems:'center', border: "1px solid lavenderblush", borderRadius: "0.75rem"
@@ -265,7 +270,7 @@ const PaymentDialog = ({device}) => {
                     <Grid item md={4}>
                         <Card 
                           sx={{
-                            height:'120px', 
+                            height:'100px', 
                             display:'flex', 
                             justifyContent:'center', 
                             alignItems:'center',border: "1px solid lavenderblush",borderRadius: "0.75rem" 
@@ -289,7 +294,7 @@ const PaymentDialog = ({device}) => {
                     <Grid item md={4}>
                         <Card 
                           sx={{
-                            height:'120px', 
+                            height:'100px', 
                             display:'flex', 
                             justifyContent:'center', 
                             alignItems:'center',
@@ -313,7 +318,7 @@ const PaymentDialog = ({device}) => {
                     </Grid>
                 </Grid>
             </SoftBox>
-            <SoftBox position="relative" height="280px" px={2}>
+            <SoftBox position="relative" height="260px" px={2}>
                 <SoftBox
                     display="flex"
                     height="100%"

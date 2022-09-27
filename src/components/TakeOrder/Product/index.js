@@ -20,14 +20,14 @@ function Product({name, price, image}) {
   const dispatch = useDispatch()
 
   return (
-    <Card onClick={() => { dispatch(addDetail({name, price, image})) }}>
+    <Card onClick={() => { dispatch(addDetail({name, price, image})) }} >
      <SoftBox position="relative" p={2} pb={1} display="flex" justifyContent="center">
         <CardMedia
           src={ image ?? `/images/food-default.png`}
           component="img"
           sx={{
             maxWidth: "100%",
-            height: "100px",
+            height: "90px",
             margin: 0,
             // boxShadow: ({ boxShadows: { md } }) => md,
             // objectFit: "cover",
@@ -35,12 +35,12 @@ function Product({name, price, image}) {
           }}
         />
      </SoftBox>
-     <SoftBox pb={2} px={2} textAlign="center" lineHeight={1.25}>
-        <SoftTypography variant="h6" fontWeight="bold" textTransform="capitalize" className="fontKanit">
+     <SoftBox pb={1} px={2} textAlign="center" lineHeight={1.25}>
+        <SoftTypography variant="button" fontWeight="bold" textTransform="capitalize" className="fontKanit" display="block" height="50px">
             {name}
         </SoftTypography>
         {/* <Divider style={{margin:'8px 0'}} /> */}
-        <SoftTypography variant="h5" color={'success'} fontWeight="bold" textGradient>
+        <SoftTypography variant="h6" color={'success'} fontWeight="bold" textGradient>
             {price}
         </SoftTypography>
      </SoftBox>
