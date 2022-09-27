@@ -142,7 +142,7 @@ const PaymentDialog = ({device}) => {
       };
 
       const buffer = EscPos.getBufferFromTemplate(template, input);
-      if( device == null) alert('Press connect device!'); return null;
+      if( device == null){ alert('Not connect printer device!'); return null; }
       device.transferOut(1, buffer).catch(error => { console.log(error) })
   }
 
